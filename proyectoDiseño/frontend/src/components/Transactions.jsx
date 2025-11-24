@@ -88,6 +88,9 @@ const Transactions = () => {
       <header className="transactions-header">
         <h1>📊 Historial de Transacciones</h1>
         <div className="header-actions">
+          <button onClick={() => navigate('/dashboard')} className="btn-secondary">
+            🏠 Dashboard
+          </button>
           <button onClick={() => navigate('/products')} className="btn-secondary">
             📦 Productos
           </button>

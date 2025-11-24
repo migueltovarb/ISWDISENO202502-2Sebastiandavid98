@@ -41,7 +41,7 @@
   font-weight: 500;
 }
 
-.form-group input {
+.form-group input, .form-group select {
   width: 100%;
   padding: 12px;
   border: 2px solid #e0e0e0;
@@ -50,7 +50,7 @@
   transition: border-color 0.3s;
 }
 
-.form-group input:focus {
+.form-group input:focus, .form-group select:focus {
   outline: none;
   border-color: #667eea;
 }

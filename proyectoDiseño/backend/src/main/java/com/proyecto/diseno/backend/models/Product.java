@@ -12,6 +12,9 @@ public class Product {
     private String description;
     private Integer quantity;
     private Double price;
+    private Integer minStock; // Stock mínimo para alertas
+    private String category; // Categoría del producto
+    private String supplierId; // ID del proveedor
 
     public Product() {}
 
@@ -20,6 +23,17 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.price = price;
+        this.minStock = 10; // Valor por defecto
+        this.category = "General";
+    }
+    
+    public Product(String name, String description, Integer quantity, Double price, Integer minStock, String category) {
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.price = price;
+        this.minStock = minStock;
+        this.category = category;
     }
 
     // Getters y Setters
@@ -61,5 +75,34 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+    
+    public Integer getMinStock() {
+        return minStock;
+    }
+
+    public void setMinStock(Integer minStock) {
+        this.minStock = minStock;
+    }
+    
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    public String getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
+    }
+    
+    // Método helper para verificar stock bajo
+    public boolean isLowStock() {
+        return this.quantity != null && this.minStock != null && this.quantity <= this.minStock;
     }
 }

@@ -1,0 +1,276 @@
+.reports-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 20px;
+}
+
+.reports-header {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.reports-header h1 {
+  color: #333;
+  margin: 0;
+  font-size: 28px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.filters-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filters-section h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.date-input, .filter-select {
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.date-input:focus, .filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-clear {
+  padding: 10px 15px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: fit-content;
+}
+
+.btn-clear:hover {
+  background: #ff5252;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-icon {
+  font-size: 48px;
+}
+
+.stat-info h3 {
+  margin: 0 0 8px 0;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+}
+
+.report-section, .chart-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.report-section h2, .chart-section h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.report-table thead {
+  background: #667eea;
+  color: white;
+}
+
+.report-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.report-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.report-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.position {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 18px;
+}
+
+.movements {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
+
+.chart-placeholder {
+  margin-top: 20px;
+}
+
+.chart-placeholder > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.simple-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chart-bar {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  align-items: center;
+  gap: 15px;
+}
+
+.bar-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.bar-container {
+  background: #e0e0e0;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.bar-value {
+  text-align: center;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover, .btn-logout:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .chart-bar {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

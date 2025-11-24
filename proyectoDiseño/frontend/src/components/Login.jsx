@@ -8,7 +8,8 @@ const Login = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    role: 'USER'
   });
   const [error, setError] = useState('');
   const { login, register, loading } = useAuth();
@@ -30,7 +31,7 @@ const Login = () => {
       : await register(formData);
 
     if (result.success) {
-      navigate('/products');
+      navigate('/dashboard');
     } else {
       setError(result.error);
     }
@@ -46,17 +47,32 @@ const Login = () => {
         
         <form onSubmit={handleSubmit}>
           {!isLogin && (
-            <div className="form-group">
-              <label>Nombre</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required={!isLogin}
-                placeholder="Tu nombre"
-              />
-            </div>
+            <>
+              <div className="form-group">
+                <label>Nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required={!isLogin}
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div className="form-group">
+                <label>Rol</label>
+                <select
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  required={!isLogin}
+                >
+                  <option value="USER">👤 Usuario</option>
+                  <option value="ADMIN">👑 Administrador</option>
+                  <option value="AUDITOR">🔍 Auditor</option>
+                </select>
+              </div>
+            </>
           )}
           
           <div className="form-group">

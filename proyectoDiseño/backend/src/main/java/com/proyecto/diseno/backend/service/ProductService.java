@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class ProductService {
     @Autowired private ProductRepository repo;
+    @Autowired private AuditLogService auditService;
 
     public Product create(Product p) {
         if (p.getName() == null || p.getName().trim().isEmpty()) {
@@ -20,7 +21,9 @@ public class ProductService {
         if (p.getPrice() == null || p.getPrice() < 0) {
             throw new RuntimeException("El precio debe ser mayor o igual a 0");
         }
-        return repo.save(p);
+        Product saved = repo.save(p);
+        auditService.log("system", "System", "CREATE", "PRODUCT", saved.getId(), "Producto creado: " + saved.getName());
+        return saved;
     }
     
     public List<Product> listAll() { 
@@ -38,11 +41,14 @@ public class ProductService {
         if (p.getDescription() != null) existing.setDescription(p.getDescription());
         if (p.getQuantity() != null) existing.setQuantity(p.getQuantity());
         if (p.getPrice() != null) existing.setPrice(p.getPrice());
-        return repo.save(existing);
+        Product updated = repo.save(existing);
+        auditService.log("system", "System", "UPDATE", "PRODUCT", id, "Producto actualizado: " + updated.getName());
+        return updated;
     }
     
     public void delete(String id) { 
-        getById(id); // Verifica que existe
+        Product product = getById(id); // Verifica que existe
+        auditService.log("system", "System", "DELETE", "PRODUCT", id, "Producto eliminado: " + product.getName());
         repo.deleteById(id); 
     }
 }
